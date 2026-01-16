@@ -15,6 +15,9 @@
   <ul id="menu"></ul>
 
   <script>
+
+    const menuContainer = document.getElementById('menu');
+
     const menu = [
       {
         name: "Chicken parmesan",
@@ -32,8 +35,29 @@
         name: "Tiramisu",
         isVegetarian: true
       }
-    ]
-    // Write your code here
+    ];
+
+    const vegetarianMeals = menu.filter((meal) => meal.isVegetarian);
+
+    vegetarianMeals.forEach(option => {
+      let dish = document.createElement("li");
+      dish.textContent = option.name;
+      menuContainer.appendChild(dish);
+    })
+
+
+    // First Attempt
+    // const htmlTemplate = []; 
+
+    // vegetarianMeals.forEach(addToTemplate);
+
+    // menuContainer.innerHTML = htmlTemplate.join('');    
+    
+    // function addToTemplate(meal) {
+    //   htmlTemplate.push(`<li>${meal.name}</li>`);
+    // }
+
+
 
   </script>
 </body>
