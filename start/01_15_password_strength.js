@@ -4,16 +4,17 @@ function checkPassword(password) {
   let oneUpperCase = /(?=.+[A-Z])/;
   let oneDigit = /(?=.+[0-9])/;
   let oneSpecialCharacter = /(?=.+[!@#$%^&*])/;
+  // Removed the plus, curly brackets mean: "Matches from n to m occurences of x" when x{n,m}. By putting no upperbound, this means at least 8 characters, but no maximum
   let leastEight = /(?=.{8,})/;
 
-  let isValid = 
+  let isValid =
     oneLowerCase.test(password) &&
     oneUpperCase.test(password) &&
     oneDigit.test(password) &&
     oneSpecialCharacter.test(password) &&
     leastEight.test(password);
 
-  return isValid ? "Your password is valid." : "Your password is invalid."
+  return isValid ? "Your password is valid." : "Your password is invalid.";
 }
 
 console.log(checkPassword("Th1sIs4G00dP4ssw0rd"));
