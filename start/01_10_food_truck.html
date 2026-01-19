@@ -15,8 +15,21 @@
   <ul id="combined-menu"></ul>
 
   <script>
-    // Write your code here
+    const $menu = document.getElementById("combined-menu");
 
+    function foodTruckFestival(menus) {
+      let flatMenus = menus.flat();
+      let combinedMenu = new Set();
+      flatMenus.forEach(item => combinedMenu.add(item));
+      for(let item of combinedMenu) {
+        let foodNode = document.createElement("li");
+        foodNode.textContent = item;
+        $menu.appendChild(foodNode);
+
+      }
+    }
+
+    foodTruckFestival([["Tacos", "Burgers"], ["Pizza", "Burgers"], ["Fries", "Tacos"]]);
   </script>
 </body>
 
